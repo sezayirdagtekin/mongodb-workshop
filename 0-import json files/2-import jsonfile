@@ -1,0 +1,23 @@
+
+#import examples.json
+C:\Program Files\MongoDB\Server\4.4\bin>mongoimport.exe --db cooker examples.json
+2020-10-31T14:01:03.686+0300    no collection specified
+2020-10-31T14:01:04.043+0300    using filename 'examples' as collection
+2020-10-31T14:01:04.689+0300    connected to: mongodb://localhost/
+2020-10-31T14:01:04.746+0300    3 document(s) imported successfully. 0 document(s) failed to import.
+
+#import recipes.json
+C:\Program Files\MongoDB\Server\4.4\bin>mongoimport.exe --db cooker recipes.json
+2020-10-31T14:02:33.696+0300    no collection specified
+2020-10-31T14:02:33.821+0300    using filename 'recipes' as collection
+2020-10-31T14:02:34.439+0300    connected to: mongodb://localhost/
+2020-10-31T14:02:34.510+0300    7 document(s) imported successfully. 0 document(s) failed to import.
+
+
+#show databes
+> show dbs
+admin   0.000GB
+config  0.000GB
+cooker  0.000GB
+local   0.000GB
+>

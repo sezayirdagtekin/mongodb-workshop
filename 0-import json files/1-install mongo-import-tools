@@ -1,0 +1,6 @@
+
+#Download mongoimport tools and copy to folder MongoDB
+C:\Program Files\MongoDB\Server\4.4\bin>
+
+https://docs.mongodb.com/database-tools/mongoimport/#installation
+
