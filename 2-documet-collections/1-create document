@@ -1,0 +1,68 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+cooker  0.000GB
+local   0.000GB
+
+> use cooker
+switched to db cooker
+
+# create document
+
+> doc={     "title": "Chicken Tacos",     "description": "Classic Mexican tacos",     "cook_time": 20 }
+
+{
+        "title" : "Chicken Tacos",
+        "description" : "Classic Mexican tacos",
+        "cook_time" : 20
+}
+>
+
+# Insert in to tacos collection
+> db.tacos.insertOne(doc)
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5f9d5f43c868133792f3cdc5")
+}
+>
+
+#find documet in  tacos collection
+> db.tacos.find()
+{ "_id" : ObjectId("5f9d5f43c868133792f3cdc5"), "title" : "Chicken Tacos", "description" : "Classic Mexican tacos", "cook_time" : 20 }
+
+#display in pretty format
+> db.tacos.find().pretty()
+{
+        "_id" : ObjectId("5f9d5f43c868133792f3cdc5"),
+        "title" : "Chicken Tacos",
+        "description" : "Classic Mexican tacos",
+        "cook_time" : 20
+}
+>
+
+# create another document
+
+}
+> doc2={     "title": "Met Tacos",     "description": "Yummi tacos",     "cook_time": 30 }
+{ "title" : "Met Tacos", "description" : "Yummi tacos", "cook_time" : 30 }
+> db.tacos.insertOne(doc2)
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5f9d61cac868133792f3cdc8")
+}
+> db.tacos.find().pretty()
+{
+        "_id" : ObjectId("5f9d61a3c868133792f3cdc7"),
+        "title" : "Chicken Tacos",
+        "description" : "Classic Mexican tacos",
+        "cook_time" : 20
+}
+{
+        "_id" : ObjectId("5f9d61cac868133792f3cdc8"),
+        "title" : "Met Tacos",
+        "description" : "Yummi tacos",
+        "cook_time" : 30
+}
+>
+
+
