@@ -1,0 +1,54 @@
+> show collections
+collection1
+examples
+recipes
+tacos
+> db.examples.find({},{"title":1});
+{ "_id" : ObjectId("5ee69e393260aab97ea0d58e"), "title" : "Delete me" }
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Pizza" }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos" }
+>
+
+# update
+> db.examples.updateOne({"title":"Pizza"},{ $set : {"title":"Thin Crust Pizza"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+#Get 
+> db.examples.find({},{"title":1});
+{ "_id" : ObjectId("5ee69e393260aab97ea0d58e"), "title" : "Delete me" }
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Thin Crust Pizza" }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos" }
+>
+
+
+or 
+> db.examples.find({"title":"Thin Crust Pizza"});
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Thin Crust Pizza" }
+>
+
+#insert new column vegan and set false
+> db.examples.updateOne({"title":"Thin Crust Pizza"},{ $set : {"vegan":false}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.examples.find({"title":"Thin Crust Pizza"});
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Thin Crust Pizza", "vegan" : false }
+>
+
+#unset remove column
+> db.examples.updateOne({"title":"Thin Crust Pizza"},{ $unset : {"vegan":1}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.examples.find({"title":"Thin Crust Pizza"});
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Thin Crust Pizza" }
+
+
+
+> db.examples.find({"title":"Tacos"},{"title":1,"likes_count":1});
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "likes_count" : 2 }
+
+#update
+> db.examples.updateOne({"title":"Tacos"},{ $inc: {"likes_count":1}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+#check
+> db.examples.find({"title":"Tacos"},{"title":1,"likes_count":1});
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "likes_count" : 3 }
+
