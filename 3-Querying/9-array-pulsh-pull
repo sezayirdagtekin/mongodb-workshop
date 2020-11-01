@@ -1,0 +1,13 @@
+#push to array -insert
+> db.examples.find({"title":"Tacos"},{"title":1,"likes":1});
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "likes" : [ 1, 415 ] }
+> db.examples.updateOne({"title":"Tacos"},{ $push: {"likes":60}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.examples.find({"title":"Tacos"},{"title":1,"likes":1});
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "likes" : [ 1, 415, 60 ] }
+
+#pull from array-remove
+> db.examples.updateOne({"title":"Tacos"},{ $pull: {"likes":60}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.examples.find({"title":"Tacos"},{"title":1,"likes":1});
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "likes" : [ 1, 415 ] }
