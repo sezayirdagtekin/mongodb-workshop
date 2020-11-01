@@ -1,0 +1,16 @@
+
+> db.recipes.find({},{"title":1}).sort({"title":1})
+{ "_id" : ObjectId("5edf1cd43260aab97ea0d588"), "title" : "Apple Pie" }
+{ "_id" : ObjectId("5e87856d07beb474c074c5ca"), "title" : "Brown Sugar Meatloaf" }
+{ "_id" : ObjectId("5e6fd805fa98021236426a24"), "title" : "Chicken Soft Tacos" }
+{ "_id" : ObjectId("5e878f5220a4f574c0aa56db"), "title" : "Maple Smoked Salmon" }
+{ "_id" : ObjectId("5e877cba20a4f574c0aa56da"), "title" : "Pancakes" }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos" }
+{ "_id" : ObjectId("5edf1d313260aab97ea0d589"), "title" : "Zucchini Brownies" }
+> db.recipes.find({},{"title":1}).sort({"title":1}).skip(1)
+{ "_id" : ObjectId("5e87856d07beb474c074c5ca"), "title" : "Brown Sugar Meatloaf" }
+{ "_id" : ObjectId("5e6fd805fa98021236426a24"), "title" : "Chicken Soft Tacos" }
+{ "_id" : ObjectId("5e878f5220a4f574c0aa56db"), "title" : "Maple Smoked Salmon" }
+{ "_id" : ObjectId("5e877cba20a4f574c0aa56da"), "title" : "Pancakes" }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos" }
+{ "_id" : ObjectId("5edf1d313260aab97ea0d589"), "title" : "Zucchini Brownies" }
