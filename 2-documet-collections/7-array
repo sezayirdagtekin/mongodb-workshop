@@ -1,0 +1,28 @@
+
+> db.recipes.find({"tags":"easy"},{"title":1,"tags":1})
+{ "_id" : ObjectId("5edf1d313260aab97ea0d589"), "title" : "Zucchini Brownies", "tags" : [ "sweets", "easy" ] }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "tags" : [ "mexican", "quick", "easy", "ground beef" ] }
+{ "_id" : ObjectId("5e87856d07beb474c074c5ca"), "title" : "Brown Sugar Meatloaf", "tags" : [ "groud beef", "family meal", "easy" ] }
+{ "_id" : ObjectId("5e6fd805fa98021236426a24"), "title" : "Chicken Soft Tacos", "tags" : [ "mexican", "quick", "easy", "chicken" ] }
+
+#Find tags easy and mexican . No result . beacuse of exact match
+> db.recipes.find({"tags":["easy","mexican"]},{"title":1,"tags":1})
+>
+#Find tags easy and mexican . we should use all
+> db.recipes.find({"tags":{$all :["easy","mexican"]}},{"title":1,"tags":1})
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "tags" : [ "mexican", "quick", "easy", "ground beef" ] }
+{ "_id" : ObjectId("5e6fd805fa98021236426a24"), "title" : "Chicken Soft Tacos", "tags" : [ "mexican", "quick", "easy", "chicken" ] }
+>
+
+#Find tags easy or  mexican . we should use 'in' operator
+> db.recipes.find({"tags":{$in :["easy","mexican"]}},{"title":1,"tags":1})
+{ "_id" : ObjectId("5edf1d313260aab97ea0d589"), "title" : "Zucchini Brownies", "tags" : [ "sweets", "easy" ] }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos", "tags" : [ "mexican", "quick", "easy", "ground beef" ] }
+{ "_id" : ObjectId("5e87856d07beb474c074c5ca"), "title" : "Brown Sugar Meatloaf", "tags" : [ "groud beef", "family meal", "easy" ] }
+{ "_id" : ObjectId("5e6fd805fa98021236426a24"), "title" : "Chicken Soft Tacos", "tags" : [ "mexican", "quick", "easy", "chicken" ] }
+
+#find in sub element(like ingredients array). use . operation for exact macth
+> db.recipes.find({"ingredients.name":"egg"},{"title":1})
+{ "_id" : ObjectId("5edf1d313260aab97ea0d589"), "title" : "Zucchini Brownies" }
+{ "_id" : ObjectId("5e877cba20a4f574c0aa56da"), "title" : "Pancakes" }
+>
