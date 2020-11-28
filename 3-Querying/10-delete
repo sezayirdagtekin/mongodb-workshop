@@ -1,0 +1,12 @@
+> db.examples.find({},{"title":1});
+{ "_id" : ObjectId("5ee69e393260aab97ea0d58e"), "title" : "Delete me" }
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Thin Crust Pizza" }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos" }
+
+#delete 
+
+> db.examples.deleteOne({"_id" : ObjectId("5ee69e393260aab97ea0d58e")});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.examples.find({},{"title":1});
+{ "_id" : ObjectId("5ee69d943260aab97ea0d58d"), "title" : "Thin Crust Pizza" }
+{ "_id" : ObjectId("5e5e9c470d33e9e8e3891b35"), "title" : "Tacos" }
