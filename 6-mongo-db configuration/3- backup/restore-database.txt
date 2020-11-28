@@ -1,0 +1,44 @@
+# in command shell display all databases
+> show databases;
+admin   0.000GB
+config  0.000GB
+cooker  0.000GB
+local   0.000GB
+test    0.000GB
+>
+
+#Delete two databases
+
+> use cooker
+switched to db cooker
+> db.dropDatabase()
+{ "dropped" : "cooker", "ok" : 1 }
+> use test
+switched to db test
+> db.dropDatabase()
+{ "dropped" : "test", "ok" : 1 }
+
+> show databases;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+>
+
+# Go to admin command prompt
+C:\Program Files\MongoDB\Server\4.4\bin>mongorestore
+2020-11-28T18:51:13.787+0300    using default 'dump' directory
+2020-11-28T18:51:13.889+0300    preparing collections to restore from
+....
+2020-11-28T18:51:14.386+0300    13 document(s) restored successfully. 0 document(s) failed to restore.
+
+C:\Program Files\MongoDB\Server\4.4\bin>
+
+
+# Got command shell display  databases .you will se test adn cooker databases again
+admin   0.000GB
+config  0.000GB
+cooker  0.000GB
+local   0.000GB
+test    0.000GB
+>
+

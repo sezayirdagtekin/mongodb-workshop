@@ -1,0 +1,19 @@
+> db.fsyncLock();
+{
+        "info" : "now locked against writes, use db.fsyncUnlock() to unlock",
+        "lockCount" : NumberLong(1),
+        "seeAlso" : "http://dochub.mongodb.org/core/fsynccommand",
+        "ok" : 1
+}
+>
+
+
+
+Perform the backup operation  manually
+
+
+After the snapshot completes, unlock the database
+
+> db.fsyncUnlock();
+{ "info" : "fsyncUnlock completed", "lockCount" : NumberLong(0), "ok" : 1 }
+>

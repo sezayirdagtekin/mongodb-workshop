@@ -1,0 +1,38 @@
+# in command shell display all databases
+> show databases;
+admin   0.000GB
+config  0.000GB
+cooker  0.000GB
+local   0.000GB
+test    0.000GB
+>
+
+
+# open second command line as adminsitrator otherwise you will error 
+
+C:\Program Files\MongoDB\Server\4.4\bin>mongodump
+2020-11-28T18:40:30.935+0300    writing admin.system.users to dump\admin\system.users.bson
+2020-11-28T18:40:31.013+0300    done dumping admin.system.users (1 document)
+2020-11-28T18:40:31.014+0300    writing admin.system.version to dump\admin\system.version.bson
+2020-11-28T18:40:31.015+0300    done dumping admin.system.version (2 documents)
+2020-11-28T18:40:31.015+0300    writing cooker.collection1 to dump\cooker\collection1.bson
+2020-11-28T18:40:31.039+0300    done dumping cooker.collection1 (1 document)
+2020-11-28T18:40:31.040+0300    writing test.solutions to dump\test\solutions.bson
+2020-11-28T18:40:31.070+0300    done dumping test.solutions (1 document)
+2020-11-28T18:40:31.320+0300    writing cooker.recipes to dump\cooker\recipes.bson
+2020-11-28T18:40:31.322+0300    writing cooker.tacos to dump\cooker\tacos.bson
+2020-11-28T18:40:31.326+0300    writing cooker.examples to dump\cooker\examples.bson
+2020-11-28T18:40:31.349+0300    done dumping cooker.recipes (7 documents)
+2020-11-28T18:40:31.362+0300    done dumping cooker.tacos (2 documents)
+2020-11-28T18:40:31.380+0300    done dumping cooker.examples (2 documents)
+
+
+
+C:\Program Files\MongoDB\Server\4.4\bin>cd dump
+
+C:\Program Files\MongoDB\Server\4.4\bin\dump>dir
+
+28.11.2020  18:40    <DIR>          admin
+28.11.2020  18:40    <DIR>          cooker
+28.11.2020  18:40    <DIR>          test
+
