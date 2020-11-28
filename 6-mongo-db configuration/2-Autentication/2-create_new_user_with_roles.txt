@@ -1,0 +1,40 @@
+
+> db.createUser(
+...   {
+...     user: "sezayir",
+...     pwd: passwordPrompt(),
+...     roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+...   }
+... );
+Enter password:
+Successfully added user: {
+        "user" : "sezayir",
+        "roles" : [
+                {
+                        "role" : "userAdminAnyDatabase",
+                        "db" : "admin"
+                },
+                "readWriteAnyDatabase"
+        ]
+}
+
+#Shut down a mongod¶
+db.adminCommand({ "shutdown" : 1 })
+
+#connect mongo aagin
+> mongod
+#open shell
+> mongo
+# switch admin database
+> use admin 
+switched to db admin
+
+login
+> db.auth("sezayir",passwordPrompt());
+Enter password:
+1
+>
+
+
+
+

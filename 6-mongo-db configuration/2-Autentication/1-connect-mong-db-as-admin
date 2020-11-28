@@ -1,0 +1,17 @@
+
+# start mongo db  from task manager or command line
+
+C:\Program Files\MongoDB\Server\4.4\bin>mongod
+
+#Open mong shell	
+C:\Program Files\MongoDB\Server\4.4\bin>mongo
+MongoDB shell version v4.4.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+
+#use admn database
+> use admin;
+switched to db admin
+
+
+
+
